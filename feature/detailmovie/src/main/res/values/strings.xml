@@ -1,0 +1,9 @@
+<resources>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="dummy_sinopsis">Fairy Tail (Japanese: フェアリーテイル Hepburn: Fearī Teiru) is a Japanese manga series
+        written and illustrated by Hiro Mashima. It was serialized in Kodansha\'s Weekly Shōnen Magazine from August 2,
+        2006 to July 26, 2017, with the individual chapters collected and published into 63 tankōbon volumes.
+    </string>
+    <string name="lihat_review">Lihat Review</string>
+    <string name="belum_ada_review_pada_movie_ini">Belum ada Review Pada Movie ini</string>
+</resources>

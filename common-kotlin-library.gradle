@@ -1,0 +1,80 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Release.compileSdkVersion
+    buildToolsVersion Release.buildToolsVersion
+    defaultConfig {
+        minSdkVersion Release.minSdkVersion
+        targetSdkVersion Release.targetSdkVersion
+        versionCode Release.versionCode
+        versionName Release.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        buildConfigField "String", "MOVIE_API_KEY", "\"d81172160acd9daaf6e477f2b306e423\""
+        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
+    }
+
+    buildTypes {
+        debug {
+
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets.each {
+        it.java.srcDirs += "src/$it.name/kotlin"
+    }
+
+    testOptions {
+        unitTests.all {
+            testLogging.events = ["passed", "skipped", "failed"]
+        }
+    }
+    androidExtensions {
+        experimental = true
+    }
+
+}
+
+dependencies {
+    implementation Android.koltin
+
+    //di
+    implementation Libraries.koin
+    implementation Libraries.koinScope
+    implementation Libraries.koinViewModel
+
+
+    // Dependencies for local unit tests
+    testImplementation TestLib.junit
+    testImplementation TestLib.mockito
+    testImplementation TestLib.nhaarman
+    testImplementation TestLib.mockitoLine
+    testImplementation Libraries.koinTest
+
+    androidTestImplementation TestLib.mockito
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation TestLib.junitX
+    androidTestImplementation TestLib.coreTest
+    androidTestImplementation TestLib.testRule
+    androidTestImplementation TestLib.archTestingRoom
+    androidTestImplementation TestLib.espresso
+    androidTestImplementation TestLib.espressoContrib
+    androidTestImplementation TestLib.coreTest
+
+
+
+    // Dependencies for Idle Resource
+    implementation TestLib.idleResource
+
+}

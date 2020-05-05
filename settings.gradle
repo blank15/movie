@@ -1,0 +1,8 @@
+rootProject.name='Movie'
+include ':app'
+include ':common'
+include ':data'
+include ':feature:home'
+include ':genre'
+include ':feature:movies'
+include ':feature:detailmovie'

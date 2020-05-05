@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="id.yudistiro.detailmovie">
+
+    <application>
+        <activity android:name=".ui.review.ReviewActivity"></activity>
+        <activity android:name=".ui.detail.DetailMovieActivity" />
+    </application>
+
+</manifest>

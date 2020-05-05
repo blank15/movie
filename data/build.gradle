@@ -1,0 +1,12 @@
+apply from: "$rootDir/common-kotlin-library.gradle"
+dependencies {
+    //network
+    implementation Network.retrofit2
+    implementation Network.retrofit2Converter
+    implementation Network.rxandroid
+    implementation Network.rxjava
+    implementation Network.okhttp3
+
+    implementation Libraries.pagination
+    implementation project(Module.common)
+}

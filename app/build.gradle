@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "id.yudistiro.movie"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation Android.koltin
+
+    //di
+    implementation Libraries.koin
+    implementation Libraries.koinScope
+    implementation Libraries.koinViewModel
+
+
+    // Dependencies for Android Support
+    implementation Android.appCompat
+    implementation Android.cardView
+    implementation Android.material
+    implementation Android.constraint
+    implementation Android.anotation
+    implementation Android.legacy
+
+    implementation Android.navigaitonUi
+    implementation Android.navigationFragment
+    //sdp device
+    implementation Libraries.sdpAndroid
+    implementation Libraries.sspAndroid
+
+    // Dependencies for local unit tests
+    testImplementation TestLib.junit
+    testImplementation TestLib.mockito
+    testImplementation TestLib.nhaarman
+    testImplementation TestLib.mockitoLine
+
+    androidTestImplementation TestLib.mockito
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation TestLib.junitX
+    androidTestImplementation TestLib.coreTest
+    androidTestImplementation TestLib.testRule
+    androidTestImplementation TestLib.archTestingRoom
+    androidTestImplementation TestLib.espresso
+    androidTestImplementation TestLib.espressoContrib
+    androidTestImplementation TestLib.coreTest
+
+    // Dependencies for Idle Resource
+    implementation TestLib.idleResource
+
+    //modular
+    implementation project(Module.common)
+    implementation project(Module.data)
+    implementation project(Module.home)
+    implementation project(Module.movies)
+    implementation project(Module.detailMovie)
+}

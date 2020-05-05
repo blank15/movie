@@ -1,0 +1,41 @@
+apply from: "$rootDir/common-kotlin-library.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Dependencies for Android Support
+    implementation Android.appCompat
+    implementation Android.cardView
+    implementation Android.material
+    implementation Android.rview
+    implementation Android.constraint
+    implementation Android.anotation
+    implementation Android.legacy
+    implementation Android.navigaitonUi
+    implementation Android.navigationFragment
+    //sdp device
+    implementation Libraries.sdpAndroid
+    implementation Libraries.sspAndroid
+
+    //glide
+    implementation Libraries.glide
+    annotationProcessor Libraries.glideCompiler
+
+    //lifecycle
+    implementation Arch.lifecycleExtension
+    implementation Arch.lifecycleViewModel
+    implementation Arch.lifecycleliveData
+    implementation Android.legacy
+    //network
+    implementation Network.retrofit2
+    implementation Network.retrofit2Converter
+    implementation Network.retrofit2Adapter
+    implementation Network.rxandroid
+    implementation Network.rxjava
+    implementation Network.okhttp3
+
+    implementation project(Module.common)
+    implementation project(Module.data)
+    implementation project(Module.movies)
+}
