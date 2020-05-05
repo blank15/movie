@@ -1,2 +1,3 @@
 # movie
-Movie Db with modularization 
+Android Sampel with API from Movie Db 
+
